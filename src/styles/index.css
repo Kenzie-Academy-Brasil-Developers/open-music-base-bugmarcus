@@ -293,18 +293,26 @@ ul {
 
 /* Estilos gerais */
 
+.dark-mode {
+  background-color: var(--color-grey-0);
+}
 .dark-mode * {
+  color: var(--color-grey-4);
   /* Estilos para modo escuro do header */
   background-color: var(--color-grey-0);
+}
+
+.dark-mode .logo {
+  color: var(--color-white-fixed);
 }
 
 .dark-mode body {
-  /* Estilos para modo escuro do header */
   background-color: var(--color-grey-0);
 }
 
-.dark-mode .moon {
-  color: var(--grey-2, #2b2f33);
+.dark-mode .dark-mode-selector {
+  background-color: var(--color-grey-1);
+  color: var(--color-grey-3);
   font-family: Font Awesome 5 Free;
   font-size: 1rem;
   font-style: normal;
@@ -314,12 +322,51 @@ ul {
 
 .dark-mode .filter {
   /* Estilos para modo escuro do filtro */
+  background-color: var(--color-grey-0);
+}
+.dark-mode .card__album-band,
+.dark-mode .card__album,
+.dark-mode .card__album span,
+.dark-mode .card__album-title,
+.dark-mode .card__album-price,
+.dark-mode .card__album-info {
   background-color: var(--color-grey-1);
 }
 
-.dark-mode .card {
-  /* Estilos para modo escuro dos cards */
-  background-color: var(--color-grey-1);
+.dark-mode .filter button {
+  display: flex;
+  height: 2rem;
+  padding: 0rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-grey-1);
+  background: var(--color-grey-1);
+  color: var(--color-grey-3);
+  padding-left: 0.5;
+  padding-right: 0.5;
 }
-
-/* ... outros estilos para modo escuro ... */
+.dark-mode .filter button:hover,
+.dark-mode .filter button:focus {
+  border-radius: 0.25rem;
+  background: var(--color-grey-2);
+  color: var(--color-white-fixed);
+  border-color: var(--color-white-fixed);
+}
+.dark-mode .card__album-button {
+  background-color: var(--color-grey-2);
+  border-color: transparent;
+}
+.dark-mode .filter__range-thumb {
+  width: 2rem;
+  height: 2rem;
+  position: relative; /* Necessário para posicionar os pseudo-elementos */
+  cursor: pointer; /* Muda o cursor ao passar por cima */
+  background-image: linear-gradient(
+    to right,
+    var(--color-brand-1),
+    var(--color-brand-1) var(--color-grey-1)
+  );
+  background-size: 100% 100%; /* Certifique-se de que o gradiente cubra todo o espaço */
+}
