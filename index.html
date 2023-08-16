@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/styles/globalStyles.css" />
-    <link rel="stylesheet" href="./src/styles/index.css" />
-    <title>Open Music</title>
-  </head>
-  <body>
-    <header></header>
-    <main></main>
-    <script src="./src/scripts/theme.js"></script>
-    <script src="./src/scripts/productsData.js"></script>
-    <script src="./src/scripts/index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/styles/globalStyles.css" />
+  <link rel="stylesheet" href="./src/styles/index.css" />
+  <title>Open Music</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="logo">open music</h1>
+    <button class="dark-mode-selector"><i class="fa-solid fa-moon"></i></button>
+  </header>
+  <main>
+    <section class="filter">
+      <div class="filter__genre">
+        <h2 class="filter__genre-heading">Gênero Musical</h2>
+        <ul class="filter__genre-list" id="genreFilters"></ul>
+      </div>
+      <div class="filter__container">
+        <div class="filter__set-price">
+          <h2 class="filter__set-price-heading">Definir Preço</h2>
+          <p class="filter__until-price" id="until-price">Até R$ ...</p>
+        </div>
+        <input class="filter__range" type="range">
+      </div>
+    </section>
+    <section class="card">
+      <h2 class="card__albums-found">Álbuns Encontrados</h2>
+      <ul class="card__albums-list" id="card-albums"></ul>
+    </section>
+  </main>
+  <script src="./src/scripts/theme.js"></script>
+  <script src="./src/scripts/productsData.js"></script>
+  <script type="module" src="./src/scripts/index.js"></script>
+</body>
+
 </html>

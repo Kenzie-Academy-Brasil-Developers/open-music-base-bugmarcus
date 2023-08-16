@@ -1,1 +1,325 @@
-/* Desenvolva sua estilização aqui ... */
+.header {
+  margin-top: 4.81rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  color: var(--grey-1, #212529);
+  font-family: Inter;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.moon {
+  color: var(--grey-2, #2b2f33);
+  font-family: Font Awesome 5 Free;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.dark-mode-selector {
+  border-radius: 0.3125rem;
+  background: var(--grey-8, #f8f9fa);
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-color: transparent;
+}
+
+body {
+  margin-left: 100px;
+  margin-right: 100px;
+  min-width: 660px;
+}
+/* Estilização da seção de filtros */
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background-section);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.filter__set-price {
+  display: flex;
+  align-items: center;
+  gap: 28.44rem;
+  margin-top: 1.5rem;
+  white-space: nowrap;
+}
+
+.filter__set-price-until-price,
+.filter__set-price-heading {
+  color: var(--grey-1, #212529);
+
+  /* font2/600 */
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 3.6rem;
+}
+
+.filter__range {
+  width: 100%;
+  appearance: none;
+  height: 0.5rem;
+  background: var(--color-grey-5);
+  margin-top: 2rem;
+  border-radius: 5px;
+  outline: none; /* Remove a borda de foco padrão */
+  opacity: 0.7; /* Opacidade padrão */
+  transition: opacity 0.2s; /* Transição suave */
+  background-image: linear-gradient(
+    to right,
+    var(--color-brand-1),
+    var(--color-brand-1) 50%,
+    var(--color-grey-5) 50%
+  );
+  background-size: 100% 100%; /* Certifique-se de que o gradiente cubra todo o espaço */
+}
+
+.filter__range-thumb {
+  width: 2rem;
+  height: 2rem;
+  position: relative; /* Necessário para posicionar os pseudo-elementos */
+  cursor: pointer; /* Muda o cursor ao passar por cima */
+  background-image: linear-gradient(
+    to right,
+    var(--color-brand-1),
+    var(--color-brand-1) 50%,
+    var(--color-grey-5) 50%
+  );
+  background-size: 100% 100%; /* Certifique-se de que o gradiente cubra todo o espaço */
+}
+
+.filter__range:hover {
+  opacity: 1; /* Aumenta a opacidade ao passar o mouse */
+}
+
+.filter__range::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  background: var(--color-brand-1); /* Cor do thumb */
+  border-radius: 50%; /* Transforma em um círculo */
+  cursor: pointer; /* Muda o cursor ao passar por cima */
+}
+
+.filter__range::-moz-range-thumb {
+  width: 20px; /* Largura do thumb */
+  height: 20px; /* Altura do thumb */
+  background: var(--color-brand-1); /* Cor do thumb */
+  color: var(--color-white-fixed);
+  border-radius: 50%; /* Transforma em um círculo */
+  cursor: pointer; /* Muda o cursor ao passar por cima */
+}
+
+.filter__genre-heading {
+  color: var(--grey-1, #212529);
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.filter__genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.88rem;
+  margin-top: 1.6rem;
+}
+
+.filter button {
+  display: flex;
+  height: 2rem;
+  padding: 0rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--grey-8, #f8f9fa);
+  background: var(--grey-8, #f8f9fa);
+  padding-left: 0.5;
+  padding-right: 0.5;
+}
+.filter button:hover,
+.filter button:focus {
+  border-radius: 0.25rem;
+  background: var(--grey-1, #212529);
+  color: var(--color-white-fixed);
+}
+
+.genre-heading {
+  color: var(--grey-1, #212529);
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-left: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.set-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+#until-price {
+  color: var(--grey-1, #212529);
+  /* font2/600 */
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 40.0625rem;
+  height: 1.1875rem;
+  flex-shrink: 0;
+}
+
+/* Estilização da seção de cards */
+.card {
+  background-color: var(--color-background-section);
+  padding: 1rem;
+}
+
+.card__albums-found {
+  margin-bottom: 3.75rem;
+}
+.card__albums-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.card__album {
+  display: flex;
+  width: calc((100% - 1.25rem) / 2);
+  align-items: center;
+  gap: 0.625rem;
+  background-color: var(--color-background-card);
+  border-radius: 0.25rem;
+  margin-bottom: 2.37rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.card__album-info {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.card__album span {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 7rem;
+}
+.card__album-band {
+  align-self: flex-start;
+  margin-right: 1rem;
+}
+.card__album-price {
+  margin-top: 1.72rem;
+  margin-right: 0;
+}
+
+.card__album-title {
+  color: var(--grey-1, #212529);
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  align-self: flex-start;
+}
+
+.card__album-image {
+  width: 275px;
+  height: 7.06rem;
+  border-radius: 0.25rem 0.25rem 0rem 0rem;
+  object-fit: cover;
+  margin: -1rem;
+}
+
+.card__album-button {
+  display: flex;
+  height: 2rem;
+  padding: 0rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--grey-7, #f1f3f5);
+  background: var(--grey-7, #f1f3f5);
+  color: var(--grey-2, #2b2f33);
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 0rem;
+}
+
+/* Estilos gerais */
+
+.dark-mode * {
+  /* Estilos para modo escuro do header */
+  background-color: var(--color-grey-0);
+}
+
+.dark-mode body {
+  /* Estilos para modo escuro do header */
+  background-color: var(--color-grey-0);
+}
+
+.dark-mode .moon {
+  color: var(--grey-2, #2b2f33);
+  font-family: Font Awesome 5 Free;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.dark-mode .filter {
+  /* Estilos para modo escuro do filtro */
+  background-color: var(--color-grey-1);
+}
+
+.dark-mode .card {
+  /* Estilos para modo escuro dos cards */
+  background-color: var(--color-grey-1);
+}
+
+/* ... outros estilos para modo escuro ... */
