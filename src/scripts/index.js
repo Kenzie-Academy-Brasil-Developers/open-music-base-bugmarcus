@@ -9,8 +9,8 @@ function createCard(product) {
   img.classList.add("card__album-image");
   card.appendChild(img);
 
-  const info = document.createElement("div"); // Criar a div info
-  info.classList.add("card__album-info"); // Adicionar classe para a div info
+  const info = document.createElement("div");
+  info.classList.add("card__album-info");
 
   const bandInfo = document.createElement("p");
   bandInfo.textContent = `${product.band} - ${product.year}`;
@@ -33,7 +33,7 @@ function createCard(product) {
   priceContainer.appendChild(buyButton);
   info.appendChild(priceContainer);
 
-  card.appendChild(info); // Adicionar a div info ao card
+  card.appendChild(info);
 
   return card;
 }
@@ -52,7 +52,7 @@ function renderButtons(array) {
 
 function renderCards(array) {
   const albumsList = document.querySelector(".card__albums-list");
-  albumsList.innerHTML = ""; // Limpar a lista antes de renderizar os cards
+  albumsList.innerHTML = "";
 
   array.forEach((product) => {
     const cardElement = createCard(product);
@@ -65,8 +65,8 @@ function addEventListeners(categories, products) {
   const priceInput = document.querySelector(".filter__range");
   const priceDisplay = document.querySelector("#until-price");
 
-  let selectedCategoryIndex = 0; // Inicialmente, "Todos" selecionado
-  let maxPrice = parseFloat(priceInput.value); // Valor inicial do input
+  let selectedCategoryIndex = 0;
+  let maxPrice = parseFloat(priceInput.value);
 
   buttonsList.addEventListener("click", (event) => {
     const selectedCategory = event.target.textContent;
@@ -100,9 +100,26 @@ function addEventListeners(categories, products) {
     });
 
     renderCards(filteredProducts);
+    updateThumbColor(); // Chama a função para atualizar a cor do thumb
   });
 }
 
+// Função para atualizar a cor do thumb do range
+function updateThumbColor() {
+  const priceInput = document.querySelector(".filter__range");
+  const thumbPosition = (priceInput.value / priceInput.max) * 100;
+  const thumbColor = `hsl(${thumbPosition}, 100%, 50%)`;
+
+  document.documentElement.style.setProperty(
+    "--thumb-position",
+    `${thumbPosition}%`
+  );
+  document.documentElement.style.setProperty("--thumb-color", thumbColor);
+}
+
+// Chama a função para renderizar os botões e os cards
 renderButtons(categories);
 renderCards(products);
+
+// Chama a função para adicionar os event listeners
 addEventListeners(categories, products);

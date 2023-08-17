@@ -88,8 +88,8 @@ ul {
   background-image: linear-gradient(
     to right,
     var(--color-brand-1),
-    var(--color-brand-1) 50%,
-    var(--color-grey-5) 50%
+    var(--color-brand-1) var(--thumb-position, 0%),
+    var(--color-grey-5) var(--thumb-position, 0%)
   );
   background-size: 100% 100%; /* Certifique-se de que o gradiente cubra todo o espaço */
 }
@@ -99,13 +99,7 @@ ul {
   height: 2rem;
   position: relative; /* Necessário para posicionar os pseudo-elementos */
   cursor: pointer; /* Muda o cursor ao passar por cima */
-  background-image: linear-gradient(
-    to right,
-    var(--color-brand-1),
-    var(--color-brand-1) 50%,
-    var(--color-grey-5) 50%
-  );
-  background-size: 100% 100%; /* Certifique-se de que o gradiente cubra todo o espaço */
+  background: var(--thumb-color, var(--color-brand-1));
 }
 
 .filter__range:hover {
@@ -236,6 +230,8 @@ ul {
   padding-bottom: 1.25rem;
   justify-content: flex-start;
   flex-direction: column;
+  min-width: 310px;
+  max-width: 310px;
 }
 
 .card__album-info {
@@ -257,6 +253,7 @@ ul {
 .card__album-price {
   margin-top: 1.72rem;
   margin-right: 0;
+  white-space: nowrap;
 }
 
 .card__album-title {
@@ -270,11 +267,13 @@ ul {
 }
 
 .card__album-image {
-  width: 275px;
+  width: 112%;
   height: 7.06rem;
   border-radius: 0.25rem 0.25rem 0rem 0rem;
   object-fit: cover;
-  margin: -1rem;
+  margin: -1.25rem;
+  position: relative;
+  z-index: 1;
 }
 
 .card__album-button {
