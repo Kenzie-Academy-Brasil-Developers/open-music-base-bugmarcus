@@ -52,6 +52,7 @@ function renderButtons(array) {
 
 function renderCards(array) {
   const albumsList = document.querySelector(".card__albums-list");
+  albumsList.innerHTML = ""; // Limpar a lista antes de renderizar os cards
 
   array.forEach((product) => {
     const cardElement = createCard(product);
@@ -59,5 +60,35 @@ function renderCards(array) {
   });
 }
 
+function addEventListeners(categories, products) {
+  const buttonsList = document.querySelector(".filter__genre-list");
+  const priceInput = document.querySelector(".filter__range");
+  const priceDisplay = document.querySelector("#until-price");
+
+  buttonsList.addEventListener("click", (event) => {
+    const selectedCategory = event.target.textContent;
+    const selectedCategoryIndex = categories.indexOf(selectedCategory);
+    let filteredProducts = products;
+
+    if (selectedCategoryIndex !== -1 && selectedCategory !== "Todos") {
+      filteredProducts = products.filter(
+        (product) => product.category === selectedCategoryIndex
+      );
+    }
+
+    renderCards(filteredProducts);
+  });
+
+  priceInput.addEventListener("input", () => {
+    const maxPrice = parseFloat(priceInput.value);
+    priceDisplay.textContent = `Até R$ ${maxPrice.toFixed(2)}`;
+    const filteredProducts = products.filter(
+      (product) => product.price <= maxPrice
+    );
+    renderCards(filteredProducts);
+  });
+}
+
 renderButtons(categories);
 renderCards(products);
+addEventListeners(categories, products);
