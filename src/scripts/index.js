@@ -65,26 +65,40 @@ function addEventListeners(categories, products) {
   const priceInput = document.querySelector(".filter__range");
   const priceDisplay = document.querySelector("#until-price");
 
+  let selectedCategoryIndex = 0; // Inicialmente, "Todos" selecionado
+  let maxPrice = parseFloat(priceInput.value); // Valor inicial do input
+
   buttonsList.addEventListener("click", (event) => {
     const selectedCategory = event.target.textContent;
-    const selectedCategoryIndex = categories.indexOf(selectedCategory);
-    let filteredProducts = products;
+    selectedCategoryIndex = categories.indexOf(selectedCategory);
 
-    if (selectedCategoryIndex !== -1 && selectedCategory !== "Todos") {
-      filteredProducts = products.filter(
-        (product) => product.category === selectedCategoryIndex
-      );
-    }
+    const filteredProducts = products.filter((product) => {
+      if (
+        selectedCategoryIndex === 0 ||
+        product.category === selectedCategoryIndex
+      ) {
+        return product.price <= maxPrice;
+      }
+      return false;
+    });
 
     renderCards(filteredProducts);
   });
 
   priceInput.addEventListener("input", () => {
-    const maxPrice = parseFloat(priceInput.value);
+    maxPrice = parseFloat(priceInput.value);
     priceDisplay.textContent = `Até R$ ${maxPrice.toFixed(2)}`;
-    const filteredProducts = products.filter(
-      (product) => product.price <= maxPrice
-    );
+
+    const filteredProducts = products.filter((product) => {
+      if (
+        selectedCategoryIndex === 0 ||
+        product.category === selectedCategoryIndex
+      ) {
+        return product.price <= maxPrice;
+      }
+      return false;
+    });
+
     renderCards(filteredProducts);
   });
 }
